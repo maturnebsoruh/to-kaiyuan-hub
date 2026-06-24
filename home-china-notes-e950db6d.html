@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 再访手记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf8f5;
+      color: #2d2a24;
+      font-family: "Noto Serif SC", "Source Han Serif CN", "Songti SC", Georgia, serif;
+      line-height: 1.8;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-top: 0.8rem;
+      margin-bottom: 0.25rem;
+      color: #1f1b14;
+      border-left: 4px solid #b8a58e;
+      padding-left: 1rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #7a7064;
+      margin-bottom: 2.5rem;
+      padding-left: 1.4rem;
+      font-style: italic;
+      border-bottom: 1px solid #e2d9cf;
+      padding-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-top: 2.8rem;
+      margin-bottom: 1rem;
+      color: #2d2a24;
+      border-bottom: 1px dashed #d5cbc1;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+      color: #3e352d;
+    }
+
+    p {
+      margin-bottom: 1.4rem;
+      text-align: justify;
+      font-size: 1.05rem;
+    }
+
+    /* 引用 / 提示框 */
+    .insight {
+      background: #f3efe9;
+      border-left: 4px solid #b8a58e;
+      padding: 1rem 1.4rem;
+      margin: 2rem 0;
+      font-style: normal;
+      color: #3e352d;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .insight strong {
+      font-weight: 600;
+      color: #1f1b14;
+    }
+
+    /* 访问句 · 嵌入式链接 */
+    .visit-sentence {
+      background: #fff;
+      padding: 1.8rem 2rem;
+      margin: 3rem 0 1.5rem;
+      border: 1px solid #e2d9cf;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      text-align: center;
+    }
+
+    .visit-sentence p {
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    a {
+      color: #7f5e3f;
+      text-decoration: none;
+      border-bottom: 1px solid #d5c0ac;
+      transition: border-color 0.2s, color 0.2s;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #3e2f1f;
+      border-bottom-color: #7f5e3f;
+    }
+
+    /* 收藏提示条 */
+    .bookmark-note {
+      background: #f8f4ef;
+      padding: 1rem 1.5rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #4d4238;
+      margin: 2rem 0;
+      text-align: center;
+      border: 1px solid #e6ddd2;
+    }
+
+    .bookmark-note span {
+      background: #e2d9cf;
+      padding: 0.1rem 0.8rem;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      color: #3e352d;
+      margin-left: 0.3rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin: 2.2rem 0;
+      padding: 0;
+    }
+
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #ede7e0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #1f1b14;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+
+    .faq-a {
+      color: #5a5045;
+      padding-left: 0.2rem;
+      font-size: 0.98rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2d9cf;
+      margin: 2.5rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #8c8175;
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2d9cf;
+    }
+
+    /* 响应式 */
+    @media (max-width: 500px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.8rem;
+      }
+      .subhead {
+        font-size: 0.9rem;
+        padding-left: 1rem;
+      }
+      .visit-sentence {
+        padding: 1.2rem 1rem;
+      }
+      .insight {
+        padding: 0.8rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>再次打开同一个站点</h1>
+  <div class="subhead">关于收藏、回访与持续关注的笔记</div>
+
+  <p>
+    几个月前第一次打开 <strong>爱游戏</strong> 这个站点时，我并没有想过会再次回来。那时候只是浏览了几篇文章，觉得内容扎实，就随手加入了书签。后来因为工作忙碌，渐渐忘记了它的存在。直到前些天整理浏览器收藏夹，才重新注意到那个熟悉的名称。
+  </p>
+
+  <p>
+    点开链接，页面没有花哨的启动动画，也没有弹窗提醒。布局依旧是克制的留白，标题清晰，段落之间呼吸感很强。我忽然意识到，一个好的内容站点，往往不需要用夸张的设计来挽留访客——它只需要让人愿意把目光停留在文字上。
+  </p>
+
+  <div class="insight">
+    <strong>一个观察</strong> · 持续关注某个站点，前提是它每次都能提供值得阅读的信息，而不是仅仅依赖访客的记忆。收藏夹里的链接很多，但能让人主动回访的，总是那些内容有延续性、更新有节奏的站点。
+  </div>
+
+  <h2>从收藏到习惯</h2>
+  <p>
+    书签是一种轻量的承诺。收藏一个页面，不代表会再次打开，却留下了一个可能性。对我来说，<a href="https://home-china-igame.com">爱游戏</a> 属于那种“值得保留可能性”的站点。它讨论的话题范围清晰，不追求流量式的标题，每一篇都有明确的主题和适度的深度。这样的内容，适合在某个安静的午后重新翻开。
+  </p>
+
+  <p>
+    后来我试着把它的链接移到了浏览器书签栏的常用文件夹里。位置变了，回访的频率也跟着变了。这件事让我想到：数字环境里，注意力本身就是一种稀缺资源。愿意为某个站点留出一个书签位置，已经是读者能给出的认真态度。
+  </p>
+
+  <h2>内容节奏与回访契机</h2>
+  <p>
+    一个站点的更新节奏，会影响读者回访的意愿。过于频繁容易造成信息过载，过于稀疏又容易被遗忘。爱游戏似乎保持着一种相对稳定的输出——不定期但有内容分量。每篇文章单独看是完整的，前后之间又存在隐性的关联。这种结构让新读者可以随时进入，而老读者也不会觉得重复。
+  </p>
+
+  <p>
+    我注意到它没有设置强制订阅或推送提醒，而是把选择权留给访客。你可以收藏，可以偶尔回来看看，也可以不回来。这种低调的姿态，反而让再次访问变成一种自主的、有意识的行为。
+  </p>
+
+  <div class="bookmark-note">
+    🏷 如果你也在书签里保留了它 · 不妨每隔一段时间回访一次 <span>持续关注</span>
+  </div>
+
+  <h2>FAQ 摘要 · 关于回访与收藏</h2>
+  <div class="faq-mini">
+    <div class="faq-item">
+      <div class="faq-q">Q：为什么有些站点值得反复访问？</div>
+      <div class="faq-a">A：通常因为内容具备持续价值、观点独到或信息密度高。收藏是一种信号，表明读者认可这种价值。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：如何培养回访习惯？</div>
+      <div class="faq-a">A：把站点链接放在常驻书签栏，或者设定每月固定时间集中阅读。不必强求每天关注，有节奏地回访更可持续。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：内容站点的更新频率重要吗？</div>
+      <div class="faq-a">A：重要，但质量优先。稳定的输出频率能帮助读者建立预期，但内容深度和真诚度才是留住访客的核心。</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="visit-sentence">
+    <p>如果你也曾在某个时刻打开过 <a href="https://home-china-igame.com">爱游戏</a>，并且觉得内容值得再看一次，不妨把它留在书签里。</p>
+    <p style="font-size: 0.95rem; color: #6b6054;">偶尔回访，或许会读到意料之外的收获。</p>
+  </div>
+
+  <p>
+    书签是数字时代的私人索引。它记录的不是链接，而是我们曾经认为重要的东西。保持关注，意味着我们愿意给某个信息源第二次机会。而真正值得回访的站点，往往不会辜负这份留意。
+  </p>
+
+  <p>
+    写下这些文字，既是记录自己对 <strong>爱游戏</strong> 这个站点的重新发现，也是提醒自己：收藏之后，偶尔回去看看。内容的价值，有时需要时间的间隔才能显现。
+  </p>
+
+  <div class="footer-note">
+    — 一篇关于再访与持续关注的笔记 · 写于整理书签之后
+  </div>
+
+</div>
+</body>
+</html>
