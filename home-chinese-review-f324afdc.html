@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 知识库 · 生活化游戏查询指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #2e2e2e;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* hero / 页眉 */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e9eef2;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 540;
+            letter-spacing: -0.01em;
+            color: #1e262c;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #5a6a76;
+            max-width: 600px;
+            border-left: 4px solid #b6c9d9;
+            padding-left: 1.2rem;
+            margin-top: 0.4rem;
+        }
+
+        /* 卡片通用样式 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e4eaef;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.02);
+            padding: 1.8rem 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1f2b33;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #eef3f7;
+            display: inline-block;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        /* 目录风格区块 */
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .index-item {
+            background: #f9fbfc;
+            border-radius: 14px;
+            border: 1px solid #e3e9ef;
+            padding: 1rem 1.2rem;
+            transition: background 0.15s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .index-item .label {
+            font-weight: 500;
+            color: #1f2b33;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .index-item .desc {
+            font-size: 0.9rem;
+            color: #5f6f7c;
+            line-height: 1.5;
+        }
+
+        /* 说明区 / 提示区 / 相关信息共用 */
+        .info-panel {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e0e7ed;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .info-panel h3 {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #1a2933;
+            margin-bottom: 0.8rem;
+        }
+
+        .badge-tip {
+            background: #eef4f9;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            color: #3a4f5e;
+            display: inline-block;
+            margin-right: 0.6rem;
+        }
+
+        .faq-mini {
+            margin-top: 1.2rem;
+            border-top: 1px solid #ecf2f7;
+            padding-top: 1rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 450;
+            color: #1f2b33;
+            padding: 0.3rem 0;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #8b9eae;
+        }
+
+        .faq-mini .answer {
+            padding: 0.4rem 0 0.4rem 1.2rem;
+            color: #4f606e;
+            font-size: 0.95rem;
+        }
+
+        /* 链接嵌入式 */
+        .inline-link {
+            color: #1c6b8c;
+            text-decoration: none;
+            font-weight: 480;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #1c6b8c;
+        }
+
+        /* 响应式 */
+        @media (max-width: 860px) {
+            .grid-2col, .grid-3col {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .index-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            body {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .index-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+            .card, .info-panel {
+                padding: 1.3rem 1.2rem;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem 0 0.5rem;
+            color: #8b9bab;
+            font-size: 0.85rem;
+            border-top: 1px solid #dce5ec;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- hero 区域 / 日常查询入口感 -->
+    <header class="hero">
+        <h1>📖 游戏知识库 · 日常查询</h1>
+        <div class="sub">
+            从对照、延伸阅读到快速一览 —— 把 <a href="https://home-chinese-igame.com" class="inline-link">爱游戏</a> 当作你手边的游戏笔记。
+        </div>
+        <p style="margin-top: 1.2rem; color: #4d606f; font-size: 0.95rem; max-width: 620px;">
+            不需要每次都从头搜索。按分类翻翻卡片，或者直接检索你关心的关键词。以下内容随日常更新而调整。
+        </p>
+    </header>
+
+    <!-- 目录感布局：索引卡片 -->
+    <div class="card" style="margin-bottom: 2rem;">
+        <h2>🗂️ 快速目录</h2>
+        <div class="index-grid">
+            <div class="index-item">
+                <span class="label">🎮 类型对照</span>
+                <span class="desc">动作 / 策略 / 模拟 / 叙事 · 快速区分</span>
+            </div>
+            <div class="index-item">
+                <span class="label">📅 发布备忘</span>
+                <span class="desc">季度新作、重制版与移植信息</span>
+            </div>
+            <div class="index-item">
+                <span class="label">🔧 辅助查询</span>
+                <span class="desc">配置、补丁、存档与社区指南</span>
+            </div>
+            <div class="index-item">
+                <span class="label">📚 延伸阅读</span>
+                <span class="desc">设计杂谈、考据与开发者访谈</span>
+            </div>
+            <div class="index-item">
+                <span class="label">🌐 多语言版本</span>
+                <span class="desc">中文本地化、配音与字幕对照</span>
+            </div>
+            <div class="index-item">
+                <span class="label">🧩 常见对照表</span>
+                <span class="desc">奖杯成就、难度选项、平台差异</span>
+            </div>
+        </div>
+        <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #5d707e;">
+            每个卡片都可以点开详细页 —— 目前只是目录框架，后续会填充更多条目。
+        </p>
+    </div>
+
+    <!-- 说明区 + 提示区 双栏 -->
+    <div class="grid-2col">
+        <div class="info-panel">
+            <h3>📌 说明 · 这种知识库怎么用</h3>
+            <p>这个页面收集日常游戏时容易忽略的细节和对照表。比如某个系列的作品顺序、不同版本的差异、或者某个机制的官方说明。</p>
+            <p style="margin-top: 0.6rem;">你可以把它看作一个公共笔记本，和好友一起补充。所有内容都基于公开可信的信息，不做夸张解读。</p>
+        </div>
+        <div class="info-panel">
+            <h3>💡 提示 · 先看这里</h3>
+            <p><span class="badge-tip">版本</span>如果你正在找某个游戏的更新日志，直接看「发布备忘」分类。</p>
+            <p><span class="badge-tip">对照</span>多平台同一款游戏？「常见对照表」里列出了帧率、分辨率、独有内容等差异。</p>
+            <p><span class="badge-tip">延伸</span>想了解幕后故事或设计思路，翻翻「延伸阅读」。</p>
+        </div>
+    </div>
+
+    <!-- 相关信息区：FAQ 摘要 + 小知识 -->
+    <div class="info-panel" style="margin-bottom: 2rem;">
+        <h3>❓ 相关信息 · 简短FAQ</h3>
+        <div class="faq-mini">
+            <details>
+                <summary>「爱游戏」知识库和普通wiki有什么不同？</summary>
+                <div class="answer">更侧重日常查询场景：条目更精简，带有对照表和备注，方便快速定位差异，而不是长篇完整历史。另外所有内容都围绕中文玩家习惯调整。</div>
+            </details>
+            <details>
+                <summary>条目会频繁更新吗？</summary>
+                <div class="answer">会。随着新游戏发布和社区反馈，对照表和延伸阅读会持续修订。你可以通过 <a href="https://home-chinese-igame.com" class="inline-link">爱游戏</a> 页面反馈遗漏或错误。</div>
+            </details>
+            <details>
+                <summary>是否包含攻略或剧透？</summary>
+                <div class="answer">基本不包含详细攻略和直接剧透。部分延伸阅读可能涉及情节背景，会提前标注「内容涉及故事设定」。主要还是以资料对照和背景介绍为主。</div>
+            </details>
+            <details>
+                <summary>我想翻译或转载部分内容，可以吗？</summary>
+                <div class="answer">可以引用片段并注明来源。整页转载前请先联系维护者。大部分内容基于开放知识，但我们希望保持引用规范。</div>
+            </details>
+        </div>
+    </div>
+
+    <!-- 场景卡片组：延伸阅读 + 日常对照 -->
+    <div class="grid-3col">
+        <div class="card">
+            <h2>📂 日常对照</h2>
+            <ul style="list-style: none; margin-top: 0.8rem; color: #374a57;">
+                <li style="padding: 0.4rem 0; border-bottom: 1px solid #edf2f7;">✓ 系列作品发行顺序表</li>
+                <li style="padding: 0.4rem 0; border-bottom: 1px solid #edf2f7;">✓ 不同平台按键图标对照</li>
+                <li style="padding: 0.4rem 0; border-bottom: 1px solid #edf2f7;">✓ 中文译名与常用缩写</li>
+                <li style="padding: 0.4rem 0;">✓ 难度选项与解锁条件</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>📎 延伸阅读</h2>
+            <ul style="list-style: none; margin-top: 0.8rem; color: #374a57;">
+                <li style="padding: 0.4rem 0; border-bottom: 1px solid #edf2f7;">▶ 像素风格演变小记</li>
+                <li style="padding: 0.4rem 0; border-bottom: 1px solid #edf2f7;">▶ 本地化配音幕后花絮</li>
+                <li style="padding: 0.4rem 0; border-bottom: 1px solid #edf2f7;">▶ 经典配乐引用考据</li>
+                <li style="padding: 0.4rem 0;">▶ 游戏内书籍／文档整理</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>🔍 快速查询</h2>
+            <p style="margin-top: 0.6rem; font-size: 0.95rem; color: #435765;">
+                直接输入关键词（目前为示意）。后续会增加搜索框和标签过滤。
+            </p>
+            <div style="background: #f1f6fa; border-radius: 30px; padding: 0.5rem 1rem; margin-top: 1rem; border: 1px solid #dce5ec; color: #748998; font-size: 0.9rem;">
+                ⚡ 例如：<a href="https://home-chinese-igame.com" class="inline-link">爱游戏</a>  成就列表 / 版本差异 / 配置要求
+            </div>
+        </div>
+    </div>
+
+    <!-- 一句话说明区：语气生活化但正式 -->
+    <div style="background: #ffffff; border-radius: 18px; padding: 1.5rem 2rem; margin-top: 1.8rem; border: 1px solid #e3eaf0; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+        <p style="font-size: 1rem; color: #2d3f4d;">
+            🗣️ 这个知识库的初衷是让日常查询变得更直接。如果你在找某个游戏的特定信息，不妨从这里开始翻翻。也欢迎在<a href="https://home-chinese-igame.com" class="inline-link">爱游戏</a>页面留下你的建议 —— 哪些对照表最常被用到？哪些条目需要补充？我们会根据实际使用调整内容。
+        </p>
+    </div>
+
+    <footer>
+        <p>—— 知识库入口 · 日常游戏查询 ——</p>
+        <p style="margin-top: 0.3rem;">基于公开信息整理 · 持续修订中</p>
+    </footer>
+
+</div>
+</body>
+</html>
