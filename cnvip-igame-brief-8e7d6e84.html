@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 灵感与乐趣的相聚</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8f9fc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 0 1.25rem;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 0 3rem;
+    }
+
+    /* hero */
+    .hero {
+      padding: 3.5rem 0 2rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #475569;
+      max-width: 540px;
+    }
+
+    .hero .sub a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .hero .sub a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* 通用章节 */
+    section {
+      margin-top: 2.8rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: #0f172a;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: #475569;
+      margin-top: 0.25rem;
+    }
+
+    /* 说明区用更宽的版式 */
+    .explain {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+
+    .explain p {
+      margin-bottom: 1rem;
+      font-size: 0.96rem;
+    }
+
+    .explain p:last-child {
+      margin-bottom: 0;
+    }
+
+    .explain a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .explain a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* FAQ 摘要 */
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      font-size: 0.97rem;
+      color: #0f172a;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .faq-a a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .faq-a a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      margin-top: 3.2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .footer-links small {
+      font-size: 0.82rem;
+      color: #94a3b8;
+    }
+
+    .footer-links a {
+      font-size: 0.92rem;
+      color: #1e293b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer-links a:hover {
+      border-bottom-color: #1e293b;
+      color: #0f172a;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .container {
+        padding: 1.5rem 0 2rem;
+      }
+
+      .explain {
+        padding: 1.2rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 4rem 0 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- hero 区 -->
+    <div class="hero">
+      <h1>爱游戏 · 寻找日常的乐趣</h1>
+      <div class="sub">
+        一个让灵感与游戏感自然相遇的地方。无论你是偶尔放松，还是认真探索，<a href="https://cnvip-igame.com">爱游戏</a> 都愿意陪伴你度过一段美好的时间。
+      </div>
+    </div>
+
+    <!-- 优势区 -->
+    <section>
+      <h2 class="section-title">为什么选择在这里停留</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>清晰简洁</h3>
+          <p>没有冗余干扰，内容直接呈现。每个页面都围绕你真正关心的部分展开，让浏览成为一件轻快的事。</p>
+        </div>
+        <div class="card">
+          <h3>灵感角落</h3>
+          <p>定期更新的想法、主题与场景，激发新的兴趣方向。不只是信息，更是一种可以带走的启发。</p>
+        </div>
+        <div class="card">
+          <h3>无负担体验</h3>
+          <p>不追求眼花缭乱的效果，只在意你是否觉得舒服。设计让位给内容，节奏由你掌控。</p>
+        </div>
+        <div class="card">
+          <h3>安静陪伴</h3>
+          <p>不制造焦虑，不夸大承诺。它就像一本可以随时翻开的书，安静地等在那里。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区 -->
+    <section>
+      <h2 class="section-title">一段关于「爱游戏」的说明</h2>
+      <div class="explain">
+        <p>「爱游戏」不是一句口号，而是一种视角。它相信每个人心里都保留着对“玩”的原始好感——那种因好奇而尝试、因投入而快乐的简单状态。在这个站点里，你找不到浮夸的标语，取而代之的是一些经过筛选的内容，它们或许关于某个小技巧、一个场景思路，或仅仅是一段让你放松片刻的阅读。</p>
+        <p>与此同时，整个站点的设计也在努力做到最小干预。没有弹窗，没有复杂的导航层级，只有干净的白底和清晰的字句。我们希望当你打开 <a href="https://cnvip-igame.com">爱游戏</a> 时，第一感觉是“这里很安静，可以慢慢看”。</p>
+        <p>当然，每个人对“好内容”的定义不尽相同。因此这个页面并不试图说服你，而是提供一种可能：如果你恰好喜欢温和的节奏、克制的表达，那么这里或许能成为你偶尔回来坐坐的地方。</p>
+      </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+      <h2 class="section-title">常见想法 · 简短回应</h2>
+      <div class="faq-item">
+        <div class="faq-q">这里的内容是面向所有人吗？</div>
+        <div class="faq-a">更准确地说，它面向愿意给“慢浏览”一点机会的人。不设年龄或身份限制，只要你觉得有趣。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">我可以从哪里了解更多？</div>
+        <div class="faq-a">直接前往 <a href="https://cnvip-igame.com">爱游戏</a>，主页会展示当前最新的主题与想法。你不需要注册，也不需要订阅邮件。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">这个站点会频繁更新吗？</div>
+        <div class="faq-a">更新节奏不固定，但每次更新都会尽量带来真正值得读的内容。与其追求数量，不如认真对待每一篇。</div>
+      </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+      <small>© 灵感与乐趣 · 爱游戏</small>
+      <a href="https://cnvip-igame.com">爱游戏</a>
+    </div>
+  </div>
+</body>
+</html>
